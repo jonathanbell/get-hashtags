@@ -42,7 +42,7 @@ class HashtagSet {
 
     $this->categories = array_map(function($category) {
       return basename($category, '.txt');
-    }, glob(__DIR__.'/*.txt'));
+    }, glob($this->data_directory.'/*.txt'));
   }
 
   /**
@@ -70,15 +70,18 @@ class HashtagSet {
     $categories = $this->getCategories();
 
     if (!in_array($category, $categories)) {
-      throw new Exception('Category not found!');
+      throw new Exception("Category: \"$category\" not found!");
     }
 
-    $hashtags = file(__DIR__."/$category.txt", FILE_IGNORE_NEW_LINES);
+    $hashtags = file($this->data_directory."/$category.txt", FILE_IGNORE_NEW_LINES);
     // Check for duplicates.
     $hashtags_without_duplicates = array_unique($hashtags);
 
+    $this_class = $this;
     return array_map(
-      array('HashtagSet', 'addHash'),
+      function($hashtag) use ($this_class) {
+        return $this_class->addHash($hashtag);
+      },
       $hashtags_without_duplicates
     );
   }
