@@ -3,6 +3,9 @@
     "description": "Using a collection of text files, generates a string of 30 or less hashtags for use on Instagram.",
     "type": "library",
     "require": {},
+    "autoload": {
+        "psr-4": {"GetHashtags\\": "src/GetHashtags"}
+    },
     "license": "WTFPL",
     "authors": [
         {
