@@ -112,6 +112,7 @@ class HashtagSet {
   public function makeHashtagStringForPost(Array $categories): String {
     $hashtagString = '';
     $blended_hashtags = [];
+    $return_hashtags = [];
 
     foreach ($categories as $category) {
       $hashtags_for_category = $this->getHashtagsByCategory($category);
@@ -125,7 +126,14 @@ class HashtagSet {
     $keys = array_slice($keys, 0, self::TOTAL_HASHTAGS);
 
     foreach ($keys as $key) {
-      $hashtagString .= $blended_hashtags[$key].' ';
+      $return_hashtags[] = $blended_hashtags[$key];
+    }
+
+    // Remove duplicates.
+    $return_hashtags = array_unique($return_hashtags);
+
+    foreach ($return_hashtags as $hashtag) {
+      $hashtagString .= $hashtag.' ';
     }
 
     return $hashtagString;
