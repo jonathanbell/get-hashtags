@@ -52,7 +52,7 @@ class HashtagSet {
    * @return Array
    *   A list of all available categories.
    */
-  protected function getCategories(): Array {
+  public function getCategories(): Array {
     return $this->categories;
   }
 
