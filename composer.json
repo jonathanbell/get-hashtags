@@ -1,0 +1,14 @@
+{
+    "name": "jonathanbell/get-hashtags",
+    "description": "Using a collection of text files, generates a string of 30 or less hashtags for use on Instagram.",
+    "type": "library",
+    "require": {},
+    "license": "WTFPL",
+    "authors": [
+        {
+            "name": "Jonathan Bell",
+            "email": "jonathanbell.ca@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
