@@ -34,7 +34,7 @@ class HashtagSet {
    *   If $data_directory path is invalid.
    */
   public function __construct($data_directory) {
-    if (!file_exits($data_directory)) {
+    if (!file_exists($data_directory)) {
       throw new Exception('The path to the data directory is invalid');
     }
 
