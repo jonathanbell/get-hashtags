@@ -52,7 +52,7 @@ class HashtagSet {
    * @return Array
    *   A list of all available categories.
    */
-  protected function getCategories(): Array {
+  public function getCategories(): Array {
     return $this->categories;
   }
 
@@ -96,7 +96,11 @@ class HashtagSet {
    *   The tidied up, fully formed hashtag.
    */
   private function addHash(String $hashtag): String {
-    return '#'.trim($hashtag);
+    if ($hashtag[0] !== '@') {
+      return '#'.trim($hashtag);
+    }
+
+    return trim(str_replace('#', '', $hashtag));
   }
 
   /**
