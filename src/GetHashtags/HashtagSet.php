@@ -41,8 +41,13 @@ class HashtagSet {
     $this->data_directory = $data_directory;
 
     $this->categories = array_map(function($category) {
-      return basename($category, '.txt');
+      $basename = basename($category, '.txt');
+      if ($basename !== 'test') {
+        return $basename;
+      }
+      return false;
     }, glob($this->data_directory.'/*.txt'));
+    $this->categories = array_values(array_filter($this->categories));
   }
 
   /**
@@ -69,7 +74,7 @@ class HashtagSet {
   protected function getHashtagsByCategory(String $category): Array {
     $categories = $this->getCategories();
 
-    if (!in_array($category, $categories)) {
+    if (!in_array($category, $categories) && $category !== 'test') {
       throw new Exception("Category: \"$category\" not found!");
     }
 
