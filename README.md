@@ -15,7 +15,7 @@ That'll output something like this string:
 #television #art #artist #artwork #artistsoninstagram #artoftheday #artsy #arty #kingoftelevision #indiantelevision #televisionproduction #televisions #royaltelevision #televisionespañola
 ```
 
-You could then use the string above on Instagram! It all depends what kind of data (text files) you supply the class though - it's up to you to maintain your own list. Support for [HashtagsForLikes](https://www.hashtagsforlikes.co/) may be added in the future but who know about that, really.
+You could then use the string above on Instagram! It all depends what kind of data (text files) you supply the class though - it's up to you to maintain your own list. Support for [HashtagsForLikes](https://www.hashtagsforlikes.co/) may be added in the future but who knows about that, really.
 
 ### What's the "data directory"?
 
