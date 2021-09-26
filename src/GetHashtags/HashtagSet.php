@@ -118,8 +118,8 @@ class HashtagSet {
    *   The fully formed string of all hashtags for use (copy/paste) into
    *   Instagram.
    */
-  public function makeHashtagStringForPost(Array $categories): String {
-    $hashtagString = '';
+  public function makeHashtagStringForPost(array $categories): String {
+    $hashtag_string = '';
     $blended_hashtags = [];
     $return_hashtags = [];
 
@@ -142,10 +142,10 @@ class HashtagSet {
     $return_hashtags = array_unique($return_hashtags);
 
     foreach ($return_hashtags as $hashtag) {
-      $hashtagString .= $hashtag.' ';
+      $hashtag_string .= '#' . str_replace('#', '', $hashtag) . ' ';
     }
 
-    return $hashtagString;
+    return $hashtag_string;
   }
 
 }
